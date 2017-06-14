@@ -47,6 +47,14 @@ namespace LambdaSqlBuilder
             _defaultAdapter = GetAdapterInstance(adapter);
         }
 
+        public static void SetAdapter(ISqlAdapter adapter)
+        {
+            if (adapter == null)
+                throw new ArgumentNullException(nameof(adapter));
+
+            _defaultAdapter = adapter;
+        }
+
         private static ISqlAdapter GetAdapterInstance(SqlAdapter adapter)
         {
             switch (adapter)
