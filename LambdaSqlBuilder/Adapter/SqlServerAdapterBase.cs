@@ -10,9 +10,9 @@ namespace LambdaSqlBuilder.Adapter
     /// <summary>
     /// Provides functionality common to all supported SQL Server versions
     /// </summary>
-    class SqlServerAdapterBase : SqlAdapterBase
+    public class SqlServerAdapterBase : SqlAdapterBase
     {
-        public string QueryStringPage(string source, string selection, string conditions, string order,
+        public virtual string QueryStringPage(string source, string selection, string conditions, string order,
             int pageSize)
         {
             return string.Format("SELECT TOP({4}) {0} FROM {1} {2} {3}",
@@ -20,17 +20,17 @@ namespace LambdaSqlBuilder.Adapter
         }
 
 
-        public string Table(string tableName)
+        public virtual string Table(string tableName)
         {
             return string.Format("[{0}]", tableName);
         }
 
-        public string Field(string tableName, string fieldName)
+        public virtual string Field(string tableName, string fieldName)
         {
             return string.Format("[{0}].[{1}]", tableName, fieldName);
         }
 
-        public string Parameter(string parameterId)
+        public virtual string Parameter(string parameterId)
         {
             return "@" + parameterId;
         }

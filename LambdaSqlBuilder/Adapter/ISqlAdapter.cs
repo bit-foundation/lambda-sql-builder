@@ -8,7 +8,7 @@ namespace LambdaSqlBuilder.Adapter
     /// <summary>
     /// SQL adapter provides db specific functionality related to db specific SQL syntax
     /// </summary>
-    interface ISqlAdapter
+    public interface ISqlAdapter
     {
         string QueryString(string selection, string source, string conditions, 
             string order, string grouping, string having);
